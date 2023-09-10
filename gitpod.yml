@@ -3,10 +3,10 @@ tasks:
       before: echo 'before'
       init: echo 'init script'
       command: echo  'start script'
-   - name: Terminal 2
+    - name: Terminal 2
       init: npm install
       command: npm run dev
-   - name: Terminal 3
+    - name: Terminal 3
       init: echo 'this is terminal 3'
       command: echo 'hello from terminal 3'
 
