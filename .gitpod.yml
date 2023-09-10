@@ -1,16 +1,22 @@
-tasks:
-    - name: Terminal 1
-      before: echo 'before'
-      init: echo 'init script'
-      command: echo  'start script'
-    - name: Terminal 2
-      init: npm install
-      command: npm run dev
-    - name: Terminal 3
-      init: echo 'this is terminal 3'
-      command: echo 'hello from terminal 3'
+image:
+  file: .gitpod.Dockerfile
 
+# List of ports to be exposed by the workspace (optional)
 ports:
-    - port: 3000
-      onOpen: open-preview
-     
+  - port: 8080
+    onOpen: ignore
+
+# Specify the tasks to run when the workspace is launched
+tasks:
+  - name: Install PHP and start server
+    command: |
+      # Install PHP and other required packages
+      sudo apt-get update
+      sudo apt-get install -y php-cli
+
+      # Change to the directory where your PHP code is located
+      cd /workspace/your-php-project
+
+      # Start a PHP server
+      php -S 0.0.0.0:8080 -t .
+    openMode: split-right
