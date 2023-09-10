@@ -1,15 +1,16 @@
-image: gitpod/workspace-full
-
-# Commands that will run on workspace start
 tasks:
-    - name: Setup, Install & Build
-      before: yarn global add express
-      init: yarn install
-      command: yarn build
+    - name: Terminal 1
+      before: echo 'before'
+      init: echo 'init script'
+      command: echo  'start script'
+   - name: Terminal 2
+      init: npm install
+      command: npm run dev
+   - name: Terminal 3
+      init: echo 'this is terminal 3'
+      command: echo 'hello from terminal 3'
 
-# Ports to expose on workspace startup
 ports:
     - port: 3000
       onOpen: open-preview
-      name: Website
-      description: Website Preview
+     
